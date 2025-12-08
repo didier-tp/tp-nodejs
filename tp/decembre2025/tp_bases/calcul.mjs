@@ -6,7 +6,7 @@ export function racineCarree(x){
     return Math.sqrt(x);
 }
 
-export function add(x,y){
+function add(x,y){
     return x+y;
 }
 
