@@ -7,7 +7,7 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
+    "module": "commonjs", //"commonjs" ou "nodenext" ou "es2015" ou ...
     "target": "esnext",
     "types": [],
     // For nodejs:
