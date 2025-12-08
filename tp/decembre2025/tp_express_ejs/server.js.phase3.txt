@@ -1,8 +1,8 @@
 import express from 'express';
 var app = express();
 
-//import https from 'https';
-import fetch from 'node-fetch';//nécessite npm install -s node-fetch
+//var http = require('http'); //ancienne syntaxe cjs
+import https from 'https';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -12,28 +12,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(__dirname+'/assets'))
 
 app.set('view engine', 'ejs');//nécessite npm install -s ejs
-
-
-async function callNinjaCatFact(){
-    
-    let wsUrl = "https://catfact.ninja/fact";
-    try{
-       const response  = await fetch(wsUrl);
-       console.log("response.status : ", + response.status);
-       if(response.ok){
-         let data  = await response.json();
-         console.log("response data : " + JSON.stringify(data));
-         return data;
-       }else{
-        let text  = await response.text();
-        console.log("error response text : " + text);
-        throw text;
-       }
-    }catch(ex){
-      console.log("ex : " + ex);
-      throw ex;
-    }
-}
 
 app.get('/', function (req, res, next) {
     res.setHeader('Content-Type', 'text/html');
@@ -46,24 +24,32 @@ app.get('/', function (req, res, next) {
 });
 
 //GET mycatfact
-app.get('/mycatfact', 
-  async function (req, res, next) {
-    
-    try{
-        let jsData = await callNinjaCatFact();
+app.get('/mycatfact', function (req, res, next) {
+    //res.write('<p>chat malo , chat pitre , ...</p>');
+    //appel http direct (avec callback et sans async/await ni Promise):
+    let catFactUrl="https://catfact.ninja/fact";
+    https.get(catFactUrl , (rawHttpResponse)=>{
+    let data = ''; //as json string or ...
+
+        // Un morceau de réponse est reçu (ou bien toute la réponse si petite taille)
+        rawHttpResponse.on('data', (chunk) => {
+            data += chunk;
+        });
+
+        // La réponse complète à été reçue. On affiche le résultat.
+        rawHttpResponse.on('end', () => {
+            console.log("data="+data);
             res.setHeader('Content-Type', 'text/html');
             res.write("<html> <body>");
-            res.write("<p>data as json string:"+JSON.stringify(jsData)+"</p>");
+            res.write("<p>data as json string:"+data+"</p>");
+            let jsData = JSON.parse(data);
             res.write("<p>catfact:"+jsData.fact+"</p>");
             res.write("</body></html>");
             res.end();
-    }catch(ex){
-            res.setHeader('Content-Type', 'text/html');
-            res.write("<html> <body>");
-            res.write("<p>catfact error:"+ex+"</p>");
-            res.write("</body></html>");
-            res.end();
-    }
+        });
+
+        
+    } )
 });
 
 //GET multiplication?a=5&b=6

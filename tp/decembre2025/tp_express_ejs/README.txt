@@ -11,7 +11,9 @@ phase 2:
 * avec Template EJS (au moins sur partie "multiplication")
 ----
 phase 3:
-* avec en arrière plan , un appel http vers api catfact avec callback
+* avec en arrière plan , un appel https vers api catfact avec callback
+https://catfact.ninja/fact est l'url du WS_REST public/elementaire a appeler en mode get
 ----
 phase 4:
+* npm install -s node-fetch
 * en arrière plan, ré-écriture de l'appel http avec api fetch et async/await
