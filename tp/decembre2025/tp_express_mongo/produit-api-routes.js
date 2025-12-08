@@ -41,10 +41,12 @@ apiRouter.route('/produit-api/public/produit')
     .get(async function (req, res, next) {
         var prixMini = req.query.prixMini;
         var criteria = prixMini ? { prix: { $gte: prixMini } } : {};
+        console.log("criteria="+JSON.stringify(criteria))
         try {
             let produits = await produitDao.findByCriteria(criteria);
             res.send(produits);
         } catch (ex) {
+            console.log("error: " + ex)
             res.status(statusCodeFromEx(ex)).send(ex);
         }
     });

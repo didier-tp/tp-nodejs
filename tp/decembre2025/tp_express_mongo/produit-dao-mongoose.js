@@ -1,6 +1,8 @@
 //var mongoose = require('mongoose');
 import mongoose from 'mongoose'; // npm install -s mongoose
 import dbMongoose from './db-mongoose.js';
+import genericPromiseMongoose from './generic-promise-mongoose.js';
+
 var thisDb = dbMongoose.thisDb;
 //NB: This is for current entity type ("Devise" or "Customer" or "Product" or ...)
 //NB: thisSchema end ThisPersistentModel should not be exported (private only in this current module)
@@ -48,4 +50,21 @@ function reinit_db() {
     });
 }
 
-export default { ThisPersistentModel , reinit_db}
+function findById(id) {
+    return genericPromiseMongoose.findByIdWithModel(id, ThisPersistentModel);
+}
+function findByCriteria(criteria) {
+    //exemple of criteria : {} or { unitPrice: { $gte: 25 } } or ...
+    return genericPromiseMongoose.findByCriteriaWithModel(criteria, ThisPersistentModel);
+}
+function save(entity) {
+    return genericPromiseMongoose.saveWithModel(entity, ThisPersistentModel);
+}
+function updateOne(newValueOfEntityToUpdate) {
+    return genericPromiseMongoose.updateOneWithModel(newValueOfEntityToUpdate,
+        newValueOfEntityToUpdate.id, ThisPersistentModel);
+}
+function deleteOne(idOfEntityToDelete) {
+    return genericPromiseMongoose.deleteOneWithModel(idOfEntityToDelete, ThisPersistentModel);
+}
+export default { ThisPersistentModel, findById, findByCriteria, save, updateOne, deleteOne , reinit_db }
