@@ -1,0 +1,37 @@
+import express from 'express';
+var app = express();
+
+app.get('/', function (req, res, next) {
+    res.setHeader('Content-Type', 'text/html');
+    res.write("<html> <body>");
+    res.write('<p>index (welcome page) of tp_express_ejs</p>');
+    res.write('<a href="mycatfact">mycatfact</a><br/>');
+    res.write('<a href="multiplication?a=5&b=6">5*6</a><br/>');
+    res.write("</body></html>");
+    res.end();
+});
+
+//GET mycatfact
+app.get('/mycatfact', function (req, res, next) {
+    res.setHeader('Content-Type', 'text/html');
+    res.write("<html> <body>");
+    res.write('<p>chat malo , chat pitre , ...</p>');
+    res.write("</body></html>");
+    res.end();
+});
+
+//GET multiplication?a=5&b=6
+app.get('/multiplication', function (req, res, next) {
+    let a = Number(req.query.a); let b = Number(req.query.b);
+    let resMult = a * b;
+    res.setHeader('Content-Type', 'text/html');
+    res.write("<html> <body>");
+    res.write('a=' + a + '<br/>'); res.write('b=' + b + '<br/>');
+    res.write('a*b=' + resMult + '<br/>');
+    res.write("</body></html>");
+    res.end();
+});
+
+app.listen(8282, function () {
+    console.log("simple express node server http://localhost:8282");
+});

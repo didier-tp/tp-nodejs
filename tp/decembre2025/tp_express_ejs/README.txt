@@ -3,10 +3,12 @@ appels de WS_REST avec http et callback puis avec api fetch et async/await
 ===============
 phase 1:
 * npm install -s express
-* route élémentaire retournant de l'HTML (routes '/mycatfact' et 'addition' )
+* route élémentaire retournant de l'HTML (routes '/mycatfact' et 'multiplication' )
 ------
 phase 2:
-* idem avec Template EJS
+* npm install -s ejs
+* avec css/styles.css dans /assets
+* avec Template EJS (au moins sur partie "multiplication")
 ----
 phase 3:
 * avec en arrière plan , un appel http vers api catfact avec callback
