@@ -1,7 +1,7 @@
 {
-  "name": "tp_express_ejs",
+  "name": "tp_express_mongo",
   "version": "1.0.0",
-  "description": "node avec express",
+  "description": "api_rest avec express et mongoose",
   "keywords": [
     "express",
     "node"
@@ -14,8 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ejs": "^3.1.10",
     "express": "^5.2.1",
-    "node-fetch": "^3.3.2"
+    "mongoose": "^8.20.2"
   }
 }

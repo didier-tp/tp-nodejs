@@ -3,8 +3,8 @@ lien avec MongoDB via mongoose
 =====
 phase 1:
 * npm install -s express
-* api rest sur "Devise" et/ou "Produit" avec dataSet en mémoire 
+* api rest sur "Produit" avec dataSet en mémoire (selon exemple pages 52,53)
 -----
 phase 2:
-* npm install -s mongoose
-* avec lien avec MongoDB (et async/await)
+* npm install -s mongoose@8.0.0
+* avec lien avec MongoDB v8 (et async/await)
