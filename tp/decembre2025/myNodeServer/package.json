@@ -1,0 +1,19 @@
+{
+  "name": "myNodeServer",
+  "version": "1.0.0",
+  "description": "node avec express",
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "license": "ISC",
+  "author": "didier",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
