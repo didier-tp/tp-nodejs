@@ -7,5 +7,9 @@
 mode opératoire :
 https://www.telerik.com/blogs/how-to-integrate-kafka-nestjs-event-driven-microservices (à adapter , source d'inspiration)
 ================
+exemple de config docker/docker-compose pour Kafka:
+https://github.com/didier-mycontrib/msa-vagrant
+et partie with-wsl2\dock-conf\Kafka (à lancer sous linux ou bien wsl2)
+================
 Exemple de connexion directe à Kafka depuis nodeJs (sans nestJs): 
 https://github.com/didier-mycontrib/tp_node_js , partie essais_kafka
