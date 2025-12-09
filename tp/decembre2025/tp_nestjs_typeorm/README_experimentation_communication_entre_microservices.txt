@@ -1,0 +1,5 @@
+1) installer un serveur Kafka (via "Windows WSL2 + Docker + Docker_compose" ou autre)
+2) développer deux applications avec nestJs
+3) faire communiquer les deux backends(microservices) via Kafka 
+   et l'api de connexion à Kafka (ou autre) intégrée à nestJs (NestFactory.createMicroservice)
+   selon la documentation de référence (https://docs.nest-js.fr/microservices/kafka) ou bien d'autres exemples disponibles sur internet
