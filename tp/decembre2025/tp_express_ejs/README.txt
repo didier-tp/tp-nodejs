@@ -17,3 +17,8 @@ https://catfact.ninja/fact est l'url du WS_REST public/elementaire a appeler en 
 phase 4:
 * npm install -s node-fetch
 * en arrière plan, ré-écriture de l'appel http avec api fetch et async/await
+
+====
+Autres exemples (plus sophistiqués) avec api fetch (dans node js):
+https://github.com/didier-tp/isika-al-frontend-tp 
+et sous partie tp-js/wsCallsViaNodeFetch
