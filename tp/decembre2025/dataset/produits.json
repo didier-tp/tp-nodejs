@@ -1,10 +1,11 @@
 [
 {
-"nom" : "regle",
-"prix" : 4.11
+"nom" : "regle2",
+"prix" : 4.11,
+"description" : "regle en platique souple"
 },
 {
-"nom" : "trousse",
+"nom" : "trousse2",
 "prix" : 3.67
 }
 ]

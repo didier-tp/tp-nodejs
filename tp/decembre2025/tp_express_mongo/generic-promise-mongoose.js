@@ -22,7 +22,10 @@ function saveWithModel(entity, PersistentModel) {
     return new Promise((resolve, reject) => {
         let persistentEntity = new PersistentModel(entity);
         persistentEntity.save()
-            .then((savedEntity) => { entity.id = savedEntity.id; resolve(entity); })
+            .then((savedEntity) => { 
+                console.log("saveWithModel , savedEntity:"+savedEntity);
+                entity.id = savedEntity.id; resolve(entity); 
+            })
             .catch((err) => {
                 if (err && err.code == 11000)
                     reject({ error: "CONFLICT", reason: "existing entity with same id" });

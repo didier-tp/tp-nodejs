@@ -1,5 +1,5 @@
 //var mongoose = require('mongoose');
-import mongoose from 'mongoose'; // npm install -s mongoose
+import mongoose , { ObjectId} from 'mongoose'; // npm install -s mongoose
 import dbMongoose from './db-mongoose.js';
 import genericPromiseMongoose from './generic-promise-mongoose.js';
 
@@ -12,10 +12,11 @@ function initMongooseWithSchemaAndModel() {
     mongoose.Connection = thisDb;
     thisSchema = new mongoose.Schema({
         /* default mongo _id: { type : ObjectId , alias : "id" } ,*/
+        //_id: { type : ObjectId , alias : "code" } ,
         nom: String,
         prix: Number
     });
-    thisSchema.set('id', true); //virtual id alias as string for _id
+    thisSchema.set('id', true);
     thisSchema.set('toJSON', {
         virtuals: true,
         versionKey: false,

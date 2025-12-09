@@ -6,7 +6,7 @@ phase 1:
 * api rest sur "Produit" avec dataSet en mémoire (selon exemple pages 52,53)
 -----
 phase 2:
-* npm install -s mongoose@8.0.0
+* npm install -s mongoose@^8
 * avec lien avec MongoDB v8 (et async/await)
 
 ============

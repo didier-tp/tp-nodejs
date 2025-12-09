@@ -4,7 +4,6 @@ var mongoDbUrl = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017"; //defau
 console.log("mongoDbUrl=" + mongoDbUrl);
 mongoose.connect(mongoDbUrl, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     user: "", pass: "",
     /*user: "username_telque_superuser" , pass : "motdepasse",*/
     dbName: 'mydb'
