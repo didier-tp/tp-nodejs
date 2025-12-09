@@ -22,6 +22,18 @@ app.get('/', function (req, res) {
     res.redirect('/html/index.html');
 });
 
+/*
+//basic middleware for checking apiKey:
+app.use(function (req, res, next) {
+    let apiKey = req.query.apiKey;
+    if (apiKey == null) {
+        res.status(400).send({ err: "apiKey missing in request", example: "?apiKey=abc123" })
+        //...
+        //plus other code for checkin apiKey in database ...
+    } else next();
+});
+*/
+
 //delegate REST API routes to apiRouter(s) :
 app.use(produitApiRoutes.apiRouter);
 //app.use(otherApiRoutes.apiRouter);
