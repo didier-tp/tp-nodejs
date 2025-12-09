@@ -24,7 +24,7 @@ function removeProduitInArrayByCode(produits, code) {
         }
     }
     if (delIndex) {
-        produits.splice(i, 1);
+        produits.splice(delIndex, 1);
     }
 }
 function findProduitsWithPrixMini(produits, prixMini) {
