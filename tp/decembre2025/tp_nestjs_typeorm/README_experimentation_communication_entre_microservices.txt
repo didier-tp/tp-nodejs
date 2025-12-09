@@ -3,3 +3,9 @@
 3) faire communiquer les deux backends(microservices) via Kafka 
    et l'api de connexion à Kafka (ou autre) intégrée à nestJs (NestFactory.createMicroservice)
    selon la documentation de référence (https://docs.nest-js.fr/microservices/kafka) ou bien d'autres exemples disponibles sur internet
+================
+mode opératoire :
+https://www.telerik.com/blogs/how-to-integrate-kafka-nestjs-event-driven-microservices (à adapter , source d'inspiration)
+================
+Exemple de connexion directe à Kafka depuis nodeJs (sans nestJs): 
+https://github.com/didier-mycontrib/tp_node_js , partie essais_kafka
