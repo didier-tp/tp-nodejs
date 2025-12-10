@@ -16,10 +16,12 @@ export class AccountController {
     // .../bank-api/accounts?ownerId=1
     @Get()
     //@UseInterceptors(ClassSerializerInterceptor)
+   
     @ApiResponse({
         description : "collection of searched accounts",
         type: [AccountL1Dto],
       })
+        
     async getAccountsByCriteria(@Query('minimumBalance') minimumBalance : number|undefined  , 
                                 @Query('ownerId') ownerId : number|undefined ): Promise<AccountL1Dto[]> {
         let aArray = null;

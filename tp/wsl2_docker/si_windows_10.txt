@@ -1,0 +1,7 @@
+...
+wsl --update --web-download
+
+wsl --install --web-download -d Ubuntu
+
+NB: username idéalement sans espace (ex: admin)
+    password simple (à ne pas oublier) (ex: admin ou pwd)
